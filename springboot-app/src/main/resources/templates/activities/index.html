@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Custom CSS -->
+     <link rel="stylesheet" th:href="@{/css/app.css}" />
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h2>Gestión de Compras</h2>
+        <a href="/purchase/new" class=" btn-custom btn btn-primary w-50 mt-3">Crear Compra</a>
+        <a href="/purchase/list" class="btn btn-secondary w-50 mt-3">Listar Compras</a>
+    </div>
+</body>
+</html>

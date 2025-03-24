@@ -1,0 +1,6 @@
+com\docencia\clase\models\Purchase.class
+com\docencia\clase\controllers\PurchaseController.class
+com\docencia\clase\ClaseApplication.class
+com\docencia\clase\models\Note.class
+com\docencia\clase\models\Car.class
+com\docencia\clase\repositories\PurchaseRepository.class

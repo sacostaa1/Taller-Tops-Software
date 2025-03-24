@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/app.css}" />
+    <script>
+        function confirmDelete(id) {
+            if (confirm("¿Estás seguro de que deseas eliminar esta compra?")) {
+                fetch(`/purchase/delete/${id}`, {
+                    method: 'DELETE',
+                }).then(response => {
+                    if (response.ok) {
+                        alert("Compra eliminada correctamente");
+                        location.reload();
+                    } else {
+                        alert("Error al eliminar la compra");
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container mt-4">
+            <h2 class="text-center" style="color:rgb(255, 255, 255);">Listado de Compras</h2>
+            <br>
+            <table class="table table-hover text-center" style=" border-radius: 10px; overflow: hidden;">
+                <thead>
+                    <tr>
+                        <th>ID Compra</th>
+                        <th>Modelo del Carro</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="purchase : ${purchases}" style="background-color: #fff; color: #121212;">
+                        <td th:text="${purchase.id}"></td>
+                        <td th:text="${purchase.typeCar}"></td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" th:attr="onclick='confirmDelete(' + ${purchase.id} + ')'">
+                                <i class="bi bi-trash"></i> Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>
